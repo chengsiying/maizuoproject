@@ -1,12 +1,21 @@
 <template>
   <div>
-    Banner
+    Detail<br>
+    Detail<br>
+    Detail<br>
+    Detail<br>
+    Detail<br>
+    Detail<br>
+    Detail<br>
+    Detail<br>
+    Detail<br>
+    Detail<br>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'mz-banner',
+  name: 'mz-detail',
   data(){
     return {};
   }

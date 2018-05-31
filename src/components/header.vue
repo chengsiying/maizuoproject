@@ -1,6 +1,6 @@
 <template>
    <div id="mz_head">
-		<div class="menu"><i class="iconfont icon-category"></i></div>
+		<div class="menu" @tap="handleNavShow"><i class="iconfont icon-category"></i></div>
 		<div class="title">卖座电影</div>
 		<div class="city">哈尔滨 <i class="iconfont icon-moreunfold"></i></div>
 		<div class="user"><i class="iconfont icon-account"></i></div>
@@ -12,6 +12,11 @@ export default {
   name: 'mz-header',
   data(){
     return {};
+  },
+  methods : {
+  	handleNavShow(){
+  		this.$store.commit({ type : 'CHANGE_NAV_SHOW' , payload : !this.$store.state.isNavShow });
+  	}
   }
 }
 </script>

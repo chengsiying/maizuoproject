@@ -2,7 +2,7 @@
   <div id="app">
   	<mz-header></mz-header>
   	<mz-nav></mz-nav>
-  	<mz-home></mz-home>
+  	<router-view></router-view> 
   </div>
 </template>
 
@@ -10,7 +10,6 @@
 
 import Header from './components/header.vue';
 import Nav from './components/nav.vue';
-import Home from './components/home.vue';
 
 export default {
   name: 'App',
@@ -19,8 +18,7 @@ export default {
   },
   components : {
   	[Header.name] : Header,
-  	[Nav.name] : Nav,
-  	[Home.name] : Home
+  	[Nav.name] : Nav
   }
 }
 </script>

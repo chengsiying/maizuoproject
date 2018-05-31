@@ -1,12 +1,20 @@
 <template>
   <div>
-    Banner
+    film<br>
+    film<br>
+    film<br>
+    film<br>
+    film<br>
+    film<br>
+    film<br>
+    film<br>
+    film<br>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'mz-banner',
+  name: 'mz-film',
   data(){
     return {};
   }
