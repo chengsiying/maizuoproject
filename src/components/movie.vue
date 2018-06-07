@@ -1,44 +1,14 @@
 <template>
   <div id="mz_movie">
 		<ul>
-			<li>
-				<img src="/static/images/4.jpg">
+			<li v-for="item in movieList">
+				<img :src="item.cover && item.cover.origin">
 				<div class="info">
 					<div class="title">
-						<p>神秘巨星</p>
-						<p>9家影院上映1331134人购票</p>
+						<p>{{item.name}}</p>
+						<p>{{item.cinemaCount}}家影院上映{{item.watchCount}}人购票</p>
 					</div>
-					<div class="score">8.5</div>
-				</div>
-			</li>
-			<li>
-				<img src="/static/images/5.jpg">
-				<div class="info">
-					<div class="title">
-						<p>神秘巨星</p>
-						<p>9家影院上映1331134人购票</p>
-					</div>
-					<div class="score">8.5</div>
-				</div>
-			</li>
-			<li>
-				<img src="/static/images/4.jpg">
-				<div class="info">
-					<div class="title">
-						<p>神秘巨星</p>
-						<p>9家影院上映1331134人购票</p>
-					</div>
-					<div class="score">8.5</div>
-				</div>
-			</li>
-			<li>
-				<img src="/static/images/5.jpg">
-				<div class="info">
-					<div class="title">
-						<p>神秘巨星</p>
-						<p>9家影院上映1331134人购票</p>
-					</div>
-					<div class="score">8.5</div>
+					<div class="score">{{item.grade}}</div>
 				</div>
 			</li>
 		</ul>
@@ -46,10 +16,29 @@
 </template>
 
 <script>
+
+import axios from 'axios';
+
 export default {
   name: 'mz-movie',
   data(){
-    return {};
+    return {
+    	movieList : []
+    };
+  },
+  mounted(){
+  	axios.get('/v4/api/film/now-playing',{
+  		params : {
+  			page : 1,
+  			count : 5
+  		}
+  	}).then((res)=>{
+		//console.log(res);
+		var msg = res.data.msg;
+		if(msg === 'ok'){
+			this.movieList = res.data.data.films;
+		}
+  	});
   }
 }
 </script>

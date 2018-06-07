@@ -1,12 +1,19 @@
 <template>
   <div>
-    Banner
+    coming-soon<br>
+    coming-soon<br>
+    coming-soon<br>
+    coming-soon<br>
+    coming-soon<br>
+    coming-soon<br>
+    coming-soon<br>
+    coming-soon<br>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'mz-banner',
+  name: 'coming-soon',
   data(){
     return {};
   }

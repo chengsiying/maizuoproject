@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from '@/components/home';
 import Film from '@/components/film';
 import Detail from '@/components/detail';
+import NowPlaying from '@/components/nowPlaying';
+import ComingSoon from '@/components/comingSoon';
 
 Vue.use(Router)
 
@@ -14,7 +16,12 @@ export default new Router({
     },
     {
       path: '/film',
-      component: Film
+      component: Film,
+      children : [
+        { path : 'now-playing' , component : NowPlaying },
+        { path : 'coming-soon' , component : ComingSoon }
+      ],
+      redirect : '/film/now-playing'
     },
     {
       path: '/detail',
