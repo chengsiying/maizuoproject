@@ -24,12 +24,15 @@ export default new Router({
       redirect : '/film/now-playing'
     },
     {
-      path: '/detail',
+      path: '/detail/:id',
       component: Detail
     },
     {
       path: '/*',
       redirect : '/home'	
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  }
 })

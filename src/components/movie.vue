@@ -1,7 +1,7 @@
 <template>
   <div id="mz_movie">
 		<ul>
-			<li v-for="item in movieList">
+			<li v-for="item in movieList" @tap="handleChange(item.id)">
 				<img :src="item.cover && item.cover.origin">
 				<div class="info">
 					<div class="title">
@@ -39,6 +39,15 @@ export default {
 			this.movieList = res.data.data.films;
 		}
   	});
+  },
+  methods : {
+  	handleChange(id){
+  		
+		//编程式路由的操作
+
+		this.$router.push('/detail/' + id);
+
+  	}
   }
 }
 </script>
